@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+    return res.status(200).json({ status: 'Webhook proxy active' });
   }
 
   const targetUrl = 'https://api.base44.app/api/apps/699fa4defc377858f5f117c0/functions/callEventHandler';
@@ -8,9 +8,7 @@ export default async function handler(req, res) {
   try {
     const response = await fetch(targetUrl, {
       method: 'POST',
-      headers: {
-        'Content-Type': req.headers['content-type'] || 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(req.body),
     });
 
