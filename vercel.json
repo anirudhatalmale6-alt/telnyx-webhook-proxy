@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/api/recording", "destination": "/api/recording" },
     { "source": "/(.*)", "destination": "/api/webhook" }
   ]
 }
